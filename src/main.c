@@ -5,8 +5,9 @@ int arr[10];
 
 int arrayRead(void);
 void bubbleSort(int arr[], int n);
-
 void displayArray(int arr[], int n);
+void selectionSort(int arr[], int n);
+
 int main(void)
 {
     int x;
@@ -15,12 +16,16 @@ int main(void)
     n = arrayRead();
     printf("Select which sorting algorithm to use:\n");
     printf("1 : Bubble Sort\n");
+    printf("2 : Selection Sort\n");    
     scanf("%d", &x);
 
     switch (x)
     {
         case 1:
             bubbleSort(arr, n);
+            break;
+        case 2:
+            selectionSort(arr, n);
             break;
         default:
             printf("Invalid choice\n");
@@ -85,4 +90,38 @@ void displayArray(int arr[], int n)
         }
         printf("\n");
     }
+}
+
+
+void selectionSort(int arr[], int n)
+{
+    int i, j, min, temp;
+    for (i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (j = i + 1; j < n; j++)
+        {
+            printf("\033[H\033[J");
+            displayArray(arr, n);
+            printf("\nComparing %d and %d\n", arr[min], arr[j]);
+            usleep(300000);
+            if (arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+        if (min != i)
+        {
+            temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+            printf("\033[H\033[J");
+            displayArray(arr, n);
+            printf("\nSwapped %d and %d\n", arr[i], arr[min]);
+            usleep(500000);
+        }
+    }
+    printf("\033[H\033[J");
+    displayArray(arr, n);
+    printf("\nSorted!\n");
 }
