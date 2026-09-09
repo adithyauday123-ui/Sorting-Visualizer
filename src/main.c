@@ -54,10 +54,13 @@ int arrayRead(void)
 
 void bubbleSort(int arr[], int n)
 {
+    int comparisons = 0;
+    int swaps = 0;
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
+            comparisons++;
             printf("\033[H\033[J");
             printf("Bubble Sort\n\n");
             displayArray(arr, n);
@@ -69,6 +72,7 @@ void bubbleSort(int arr[], int n)
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
+	        swaps++;
                 printf("\033[H\033[J");
                 printf("Bubble Sort\n\n");
                 displayArray(arr, n);
@@ -77,6 +81,10 @@ void bubbleSort(int arr[], int n)
             }
         }
     }
+    printf("\nsorted\n\n");
+    printf("===Sorting statistics===\n");
+    printf("Comparisons = %d\n",comparisons);
+    printf("Swaps = %d\n",swaps);    
 }
 
 void displayArray(int arr[], int n)
@@ -86,9 +94,9 @@ void displayArray(int arr[], int n)
         printf("%2d ", arr[i]);
         for (int j = 0; j < arr[i]; j++)
         {
-            printf("#");
+            printf("█ ");
         }
-        printf("\n");
+        printf("\n\n");
     }
 }
 
@@ -96,6 +104,8 @@ void displayArray(int arr[], int n)
 void selectionSort(int arr[], int n)
 {
     int i, j, min, temp;
+    int comparisons = 0;
+    int swaps = 0;
     for (i = 0; i < n - 1; i++)
     {
         min = i;
@@ -105,6 +115,7 @@ void selectionSort(int arr[], int n)
             displayArray(arr, n);
             printf("\nComparing %d and %d\n", arr[min], arr[j]);
             usleep(300000);
+	    comparisons++;
             if (arr[j] < arr[min])
             {
                 min = j;
@@ -115,6 +126,7 @@ void selectionSort(int arr[], int n)
             temp = arr[i];
             arr[i] = arr[min];
             arr[min] = temp;
+	    swaps ++;
             printf("\033[H\033[J");
             displayArray(arr, n);
             printf("\nSwapped %d and %d\n", arr[i], arr[min]);
@@ -123,5 +135,8 @@ void selectionSort(int arr[], int n)
     }
     printf("\033[H\033[J");
     displayArray(arr, n);
-    printf("\nSorted!\n");
+    printf("\nSorted!\n\n");
+    printf("===Sorting statistics===\n");
+    printf("Comparisons = %d\n",comparisons);
+    printf("Swaps = %d\n",swaps);
 }
