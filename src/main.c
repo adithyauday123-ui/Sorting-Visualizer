@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include<time.h>
+#include<stdlib.h>
 #include <unistd.h>
 
 int arr[10];
 
-int arrayRead(void);
+void randomArray(int arr[], int n);
+void arrayRead(int n);
 void bubbleSort(int arr[], int n);
 void displayArray(int arr[], int n);
 void selectionSort(int arr[], int n);
@@ -12,8 +15,27 @@ int main(void)
 {
     int x;
     int n;
+    srand(time(NULL));
+    
+    printf("Enter array size : ");
+    scanf("%d",&n); 
 
-    n = arrayRead();
+    printf("1 : Enter array manually\n");
+    printf("2 : Generate random array\n");
+    scanf("%d",&x);
+    if(x==1) 
+        arrayRead(n);
+    else if(x==2)
+        randomArray(arr,n);
+    else
+        printf("Invalid choice");
+    printf("\nArray : ");
+    for(int c=0;c<n;c++)
+    {
+        printf("%d ",arr[c]);
+    }
+    printf("\n\n");
+
     printf("Select which sorting algorithm to use:\n");
     printf("1 : Bubble Sort\n");
     printf("2 : Selection Sort\n");    
@@ -35,20 +57,22 @@ int main(void)
 }
 
 
-
-int arrayRead(void)
+void randomArray(int arr[], int n)
 {
-    int n;
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = rand() % 20 + 1;
+    }
+}
 
-    printf("Enter array size: ");
-    scanf("%d", &n);
-    printf("Enter %d elements:\n", n);
 
+void  arrayRead(int n)
+{
+    printf("Enter the elements\n");
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
-    return n;
 }
 
 
