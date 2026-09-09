@@ -5,6 +5,7 @@
 
 int arr[10];
 
+void viewArray(int n);
 void randomArray(int arr[], int n);
 void arrayRead(int n);
 void bubbleSort(int arr[], int n);
@@ -29,12 +30,7 @@ int main(void)
         randomArray(arr,n);
     else
         printf("Invalid choice");
-    printf("\nArray : ");
-    for(int c=0;c<n;c++)
-    {
-        printf("%d ",arr[c]);
-    }
-    printf("\n\n");
+    viewArray(n);
 
     printf("Select which sorting algorithm to use:\n");
     printf("1 : Bubble Sort\n");
@@ -56,6 +52,15 @@ int main(void)
     return 0;
 }
 
+void viewArray(int n)
+{
+     printf("\nArray : ");
+     for(int c=0;c<n;c++)
+     {
+           printf("%d ",arr[c]);
+     }
+     printf("\n\n");
+}
 
 void randomArray(int arr[], int n)
 {
