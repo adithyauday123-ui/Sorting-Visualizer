@@ -175,21 +175,29 @@ void selectionSort(int arr[], int n)
     printf("Swaps = %d\n",swaps);
 }
 
+
 void insertionSort(int arr[], int n)
 {
     int i, j, key;
+    int comparisons = 0;
+    int shifts = 0;
+
     for (i = 1; i < n; i++)
     {
         key = arr[i];
         j = i - 1;
-        while (j >= 0 && arr[j] > key)
+        while (j >= 0)
         {
+            comparisons++;
+            if (arr[j] <= key)
+                break;
             printf("\033[H\033[J");
             printf("Insertion Sort\n\n");
             displayArray(arr, n);
             printf("\nComparing %d and %d\n", arr[j], key);
             usleep(500000);
             arr[j + 1] = arr[j];
+            shifts++;
             j--;
             printf("\033[H\033[J");
             printf("Insertion Sort\n\n");
@@ -207,4 +215,7 @@ void insertionSort(int arr[], int n)
     printf("\033[H\033[J");
     displayArray(arr, n);
     printf("\nSorted!\n");
+    printf("\n=== Sorting statistics ===\n");
+    printf("Comparisons = %d\n", comparisons);
+    printf("Shifts      = %d\n", shifts);
 }
