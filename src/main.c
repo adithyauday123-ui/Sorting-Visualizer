@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include <unistd.h>
 
-int arr[10];
+int arr[10];      //Global array declaration
 
 void viewArray(int n);
 void randomArray(int arr[], int n);
@@ -13,7 +13,7 @@ void displayArray(int arr[], int n);
 void selectionSort(int arr[], int n);
 void insertionSort(int arr[], int n);
 
-int main(void)
+int main(void)        //Main function
 {
     int x;
     int n;
@@ -33,7 +33,7 @@ int main(void)
         printf("Invalid choice");
     viewArray(n);
 
-    printf("Select which sorting algorithm to use:\n");
+    printf("Select which sorting algorithm to use:\n");    //Sorting menu
     printf("1 : Bubble Sort\n");
     printf("2 : Selection Sort\n");
     printf("3 : Insertion Sort\n");    
@@ -57,7 +57,7 @@ int main(void)
     return 0;
 }
 
-void viewArray(int n)
+void viewArray(int n)                                        //Function to display array
 {
      printf("\nArray : ");
      for(int c=0;c<n;c++)
@@ -67,7 +67,7 @@ void viewArray(int n)
      printf("\n\n");
 }
 
-void randomArray(int arr[], int n)
+void randomArray(int arr[], int n)                            //Function to generate random array
 {
     for (int i = 0; i < n; i++)
     {
@@ -76,7 +76,7 @@ void randomArray(int arr[], int n)
 }
 
 
-void  arrayRead(int n)
+void  arrayRead(int n)                                        //Function for reading array
 {
     printf("Enter the elements\n");
     for (int i = 0; i < n; i++)
@@ -86,7 +86,7 @@ void  arrayRead(int n)
 }
 
 
-void bubbleSort(int arr[], int n)
+void bubbleSort(int arr[], int n)                              //Bubble Sort
 {
     int comparisons = 0;
     int swaps = 0;
@@ -121,7 +121,7 @@ void bubbleSort(int arr[], int n)
     printf("Swaps = %d\n",swaps);    
 }
 
-void displayArray(int arr[], int n)
+void displayArray(int arr[], int n)                              //Function display array
 {
     for (int i = 0; i < n; i++)
     {
@@ -135,7 +135,7 @@ void displayArray(int arr[], int n)
 }
 
 
-void selectionSort(int arr[], int n)
+void selectionSort(int arr[], int n)                           //Selection sort
 {
     int i, j, min, temp;
     int comparisons = 0;
@@ -176,7 +176,7 @@ void selectionSort(int arr[], int n)
 }
 
 
-void insertionSort(int arr[], int n)
+void insertionSort(int arr[], int n)                      //Insertion Sort
 {
     int i, j, key;
     int comparisons = 0;
