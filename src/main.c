@@ -9,7 +9,6 @@ int arr[10];      //Global array declaration
 void viewArray(int n);
 void randomArray(int arr[], int n);
 void arrayRead(int n);
-void displayArray(int arr[], int n);
 
 int main(void)        //Main function
 {
@@ -87,18 +86,6 @@ void  arrayRead(int n)                                        //Function for rea
 
   
 
-void displayArray(int arr[], int n)                              //Function display array
-{
-    for (int i = 0; i < n; i++)
-    {
-        printf("%2d ", arr[i]);
-        for (int j = 0; j < arr[i]; j++)
-        {
-            printf("█ ");
-        }
-        printf("\n\n");
-    }
-}
 
 
 

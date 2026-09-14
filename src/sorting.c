@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "sorting.h"
-void displayArray(int arr[], int n);
+#include "visualizer.h"
 
 
 void bubbleSort(int arr[], int n)                              //Bubble Sort
